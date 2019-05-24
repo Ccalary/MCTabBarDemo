@@ -65,6 +65,11 @@
     }
 }
 
+//必须执行shouldSelectViewController
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
+    return YES;
+}
+
 //旋转动画
 - (void)rotationAnimation{
     if ([@"key" isEqualToString:[self.mcTabbar.centerBtn.layer animationKeys].firstObject]){
