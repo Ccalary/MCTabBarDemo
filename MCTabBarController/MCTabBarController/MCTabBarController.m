@@ -38,7 +38,11 @@
 
 - (void)buttonAction:(UIButton *)button{
     NSInteger count = self.viewControllers.count;
-    self.selectedIndex = count/2;//关联中间按钮
-    [self tabBarController:self didSelectViewController:self.viewControllers[self.selectedIndex]];
+    //先执行shouldSelectViewController，不然点击中间按钮不走shouldSelectViewController
+    if ([self tabBarController:self shouldSelectViewController:self.viewControllers[count/2]]) {
+        //self.selectedIndex = count/2;//关联中间按钮
+        self.selectedIndex = count/2;
+        [self tabBarController:self didSelectViewController:self.viewControllers[count/2]];
+    }
 }
 @end

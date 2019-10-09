@@ -59,4 +59,9 @@
     [self addChildViewController:baseNav];
 }
 
+//必须执行shouldSelectViewController
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
+    return YES;
+}
+
 @end
